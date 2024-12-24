@@ -10,21 +10,20 @@ Essa aplicação frontend faz parte do projeto final do curso MBA FullStak do De
 A aplicação tem foco no mercado e, assim, foi desenvolvida utilizando uma variedade de tecnologias modernas para criar uma experiência robusta e escalável. Abaixo estão as principais tecnologias utilizadas:
 
 CSS: usado para a estilização da aparência da página.
-Javascript: Permite adicionar interatividade, animações, manipular o conteúdo dinamicamente e responder às ações do usuário.
-React: permite criar componentes reutilizáveis, gerenciar o estado da aplicação de forma eficiente e simplificar o desenvolvimento de interfaces complexas.
-Axios: biblioteca Javascript para fazer requisições HTTP.
-Styled-Components: uma biblioteca que permite escrever CSS dentro do Javascript.
-React-Router-Dom: uma biblioteca para gerenciar rotas em aplicações React.
-Reack-Toastify:  uma biblioteca para exibir notificações toast de forma simples e personalizável.
-React-Hooks: são funções que permitem usar recursos do React, como estado e ciclo de vida, em componentes funcionais.
-Contex-Api: uma forma de compartilhar dados entre componentes React sem precisar passar props explicitamente em cada nível da árvore de componentes.
-Prop-Types: uma biblioteca para definir os tipos de dados que um componente React espera receber.
-Yup: biblioteca para validação de dados em Javascript
-Cors: (Cross-Origin Resource Sharing) é um mecanismo de segurança que permite que um servidor web controle quais sites podem acessar seus recursos.
+<br>Javascript: Permite adicionar interatividade, animações, manipular o conteúdo dinamicamente e responder às ações do usuário.
+<br>React: permite criar componentes reutilizáveis, gerenciar o estado da aplicação de forma eficiente e simplificar o desenvolvimento de interfaces complexas.
+<br>Axios: biblioteca Javascript para fazer requisições HTTP.
+<br>Styled-Components: uma biblioteca que permite escrever CSS dentro do Javascript.
+<br>React-Router-Dom: uma biblioteca para gerenciar rotas em aplicações React.
+<br>Reack-Toastify:  uma biblioteca para exibir notificações toast de forma simples e personalizável.
+<br>React-Hooks: são funções que permitem usar recursos do React, como estado e ciclo de vida, em componentes funcionais.
+<br>Contex-Api: uma forma de compartilhar dados entre componentes React sem precisar passar props explicitamente em cada nível da árvore de componentes.
+<br>Prop-Types: uma biblioteca para definir os tipos de dados que um componente React espera receber.
+<br>Yup: biblioteca para validação de dados em Javascript
+<br>Cors: (Cross-Origin Resource Sharing) é um mecanismo de segurança que permite que um servidor web controle quais sites podem acessar seus recursos.
 
 
 Backend do projeto: [GitHub](https://github.com/igorlazzaretti/DevBurguer-API.DevClub)
-
 
 ## Sobre o Professor
 
@@ -38,6 +37,16 @@ Linkedin: [Rodolfo Mori](https://www.linkedin.com/in/rodolfomori/)
 
 </div>
 
+## Sobre o Curso
+
+A Formação Devclub é a formação mais completa de programação que você já viu, uma vez que você aprende do zero ao avançado para em menos de 06 meses estar atuando como um programador full stack.
+
+A Formação possui mais de 35 módulos e entre eles aulas completas de HTML, CSS, Javascript, Node, Banco de dados, React e muito mais!
+
+Sem contar com as aulas liberadas constantemente como potencializador do seu aprendizado.
+
+<div align="center"> <img src="./src/readme/devclub.webp" width="290"> </div>
+<div align="center"> <a src="https://www.youtube.com/@canaldevclub"> Conheça o Canal no Youtube </a> </div>
 
 ## Tecnologias Utilizadas
 
