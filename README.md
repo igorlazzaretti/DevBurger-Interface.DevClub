@@ -1,12 +1,7 @@
+<!-- Commit: Interface do DevBurguer -->
 ## Iniciando no React - Cadastro de Usuários
 
-<div align="center">
-<br>
-<img width="450" src="./src/readme/banner.png">
-</div> <br>
-<div align="center">
-
-</div>
+<div align="center"> <img src="./src/readme/Banner.png" width="490"> </div>
 
 ## Sobre o Curso
 
