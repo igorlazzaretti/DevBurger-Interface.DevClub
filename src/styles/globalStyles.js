@@ -1,6 +1,6 @@
 // Estilos Globais utilizados no projeto
 import { createGlobalStyle } from 'styled-components';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 const globalStyles = createGlobalStyle`
        * {
@@ -12,7 +12,7 @@ const globalStyles = createGlobalStyle`
         font-weight: 400;
         font-style: normal;
     }
-    button {
+    button, a {
         cursor: pointer;
     }
 `;
