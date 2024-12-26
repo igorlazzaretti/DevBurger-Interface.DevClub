@@ -1,4 +1,4 @@
-<!-- Commit: :rocket:Interface DevBurguer -->
+<!-- Commit: :man_technologist:Interface DevBurguer -->
 ## Interface Frontend do DevBurguer
 
 <div align="center"> <img src="./public/readme/Banner.png" width="490"> </div>
