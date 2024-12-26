@@ -7,8 +7,12 @@ import {
     RigthContainer,
     Title,
     Link,
-    Button
+
 } from "./styles";
+
+// Components: Button
+import { Button } from '../../components/Button/index.jsx';
+
 
 export function Login() {
     return (

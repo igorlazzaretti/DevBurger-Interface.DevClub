@@ -102,17 +102,14 @@ export const Link = styled.a`
  text-decoration: underline;
     cursor: pointer;
     transition: 0.8s;
-    color:#ff8c05;
+    color:#A4CB23;
 
     &:hover{
         scale: 1.5;
-        color:#ff8c05;
+        color:#9758A6;
 
     }
     &:active{
-        color: #FF6D00;
+        color: #DDA137;
     }
-`
-export const Button = styled.button`
-    background-color: aliceblue;
 `
