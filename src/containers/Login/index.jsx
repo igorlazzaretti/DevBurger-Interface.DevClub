@@ -11,6 +11,9 @@ import {
     Link,
 } from "./styles";
 
+// Api Axios
+import { api}  from "../../services/api";
+
 // Components: Button
 import { Button } from '../../components/Button/index.jsx';
 
@@ -41,8 +44,10 @@ export function Login() {
         resolver: yupResolver(schema)
     });
     console.log(errors)
+
+    // Função de Login com Axios na rota session
     const onSubmit = async (data) => {
-        console.log(data)
+        // console.log(data)
         const { data: userData } = await toast.promise(
             api.post('/session', {
                 email: data.email,
