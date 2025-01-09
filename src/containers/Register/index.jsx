@@ -9,10 +9,10 @@ import {
     RigthContainer,
     Title,
     Link,
-} from "./styles";
+} from "./styles.js";
 
 // Api Axios
-import { api } from "../../services/api";
+import { api } from "../../services/api.js";
 
 // Components: Button
 import { Button } from '../../components/Button/index.jsx';
@@ -20,7 +20,7 @@ import { Button } from '../../components/Button/index.jsx';
 // Toastify - usameros a promise para exibir o toast
 import { toast } from 'react-toastify';
 
-//React Router Dom - Use Navigate: redireciona
+// useNavigate - React Router Dom
 import { useNavigate } from "react-router-dom";
 
 // Hook Form e Yup
@@ -29,19 +29,23 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 
-export function Login() {
+export function Register() {
 
-    // useNavigate
+    // Var useNavigate
     const navigate = useNavigate();
 
     // Validação Yup
     const schema = yup.object({
+        name: yup.string().required('O nome é obrigatório'),
         email: yup.string()
             .email('Digite um e-mail válido')
             .required('O e-mail é obrigatório'),
         password: yup.string()
             .min(6, 'A senha deve ter pelo menos 6 caracteres')
             .required('Digite a senha'),
+        confirmPassword: yup.string()
+            .oneOf([yup.ref('password')], 'As senhas devem ser iguais')
+            .required('Confirme sua senha'),
     })
         .required();
 
@@ -58,29 +62,32 @@ export function Login() {
     // Função de Login com Axios na rota session(Login)
     const onSubmit = async (data) => {
 
-        const response = await toast.promise(
-
-            api.post('/session', {
-                email: data.email,
-                password: data.password,
-            }),
-            // Informações do toast
-            {
-                pending: 'Carregando seus dados... 🧑‍🏭',
-                success: {
-                    render() {
-                        setTimeout(() => {
-                            // Navega para a Home, após 2 Segundos
-                            navigate('/');
-                        }, 2000);
-                    return 'Login efetuado com sucesso!🎉';
-                    },
+        try {
+            const { status } = await api.post('/users',
+                {
+                    name: data.name,
+                    email: data.email,
+                    password: data.password,
                 },
-                error: 'E-mail ou senha inválidos! 😥'
+                {
+                    validateStatus: () => true
+                }
+            );
+            if (status === 200 || status === 201) {
+                toast.success('Conta criada com sucesso!')
+                setTimeout(() => {
+                    // Navega para a tela de Login
+                    navigate('/login')
+                }, 2000)
+            } else if (status === 400) {
+                toast.error('Email já cadastrado')
+            } else {
+                throw new Error()
             }
-        )
 
-        console.log(response)
+        } catch (error) {
+            toast.error("Falha no sitema Tente novamente")
+        }
 
     };
 
@@ -94,11 +101,15 @@ export function Login() {
             </LeftContainer>
             <RigthContainer>
                 <Title>
-                    Olá, seja bem vindo ao <span>Dev Burguer!</span>
-                    <br />
-                    Acesse com seu <span>Login e senha</span>
+                    Criar Conta
                 </Title>
                 <Form onSubmit={handleSubmit(onSubmit)}>
+                    <InputContainer>
+                        <label>Nome</label>
+                        <input type="text" {...register("name")} />
+                        <p>{errors?.name?.message}</p>
+                    </InputContainer>
+
                     <InputContainer>
                         <label>Email</label>
                         <input type="email" {...register("email")} />
@@ -110,11 +121,18 @@ export function Login() {
                         <input type="password" {...register("password")} />
                         <p>{errors?.password?.message}</p>
                     </InputContainer>
-                    <Button type="submit" >Entrar</Button>
+
+                    <InputContainer>
+                        <label>Confirmar Senha</label>
+                        <input type="password" {...register("confirmPassword")} />
+                        <p>{errors?.confirmPassword?.message}</p>
+                    </InputContainer>
+
+                    <Button type="submit" >Cadastrar</Button>
                 </Form>
 
                 <p>
-                    Não possui conta? <Link to="/cadastro">Clique aqui</Link>
+                    Já possui conta? <Link to="/login">Clique aqui</Link>
                 </p>
             </RigthContainer>
         </Container>
