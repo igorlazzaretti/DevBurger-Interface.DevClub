@@ -1,12 +1,11 @@
 <!-- Commit:
 :man_technologist:Interface DevBurguer
-Aula X Módulo X -
+Módulo 1 Aula 4 - Eslist
 
+Em Desenvolvimento
 
-React Router Dom
-
-$ yarn add react-router-dom
-
+ESlint e Prettier. Desistalar extensões do Prettier e utilizar extensão do ESlint
+yarn add eslint-config-prettier eslint-plugin-prettier eslint-plugin-import-helpers prettier -D
 
  -->
 ## Interface Frontend do DevBurguer
