@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 
 export function CategoriesCarousel() {
@@ -8,8 +7,8 @@ export function CategoriesCarousel() {
   useEffect(() => {
     async function loadCategories() {
       try {
-        const response = await api.get('/categories');
-        console.log("Categories:", response);
+        const { data } = await api.get('/categories');
+        setCategories(data);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }

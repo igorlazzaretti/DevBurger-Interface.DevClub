@@ -58,7 +58,9 @@ export function Login() {
     // Função de Login com Axios na rota session(Login)
     const onSubmit = async (data) => {
 
-        const response = await toast.promise(
+        const {
+            data: {token}   // A variavel token é retornada do backend
+        } = await toast.promise(
 
             api.post('/session', {
                 email: data.email,
@@ -79,9 +81,8 @@ export function Login() {
                 error: 'E-mail ou senha inválidos! 😥'
             }
         )
-
-        console.log(response)
-
+        // Salvando o token do usuário que logou no localStorage
+        localStorage.setItem('devburguer:token', token);
     };
 
 
