@@ -1,6 +1,6 @@
 <!-- Commit:
 :man_technologist:Interface DevBurguer
-Módulo 1 Aula 21 - Atualizando Tela de Home
+Módulo 1 Aula 22 - Criando Carroséis
 
 Figma: https://www.figma.com/design/iggbPQzl4BsDC0gKKifcwG/DevBurger?node-id=0-1&p=f&t=V6aRzXLheZhpJalg-0
 Em Desenvolvimento
