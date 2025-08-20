@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Container, Title, ContainerItems } from "./styles";
+import { Container, Title } from "./styles";
+import { CardProduct } from "../CardProduct";
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([]);
@@ -14,6 +15,7 @@ export function OffersCarousel() {
         // Filtro para obter apenas as ofertas
         const onlyOffers = data.filter(product => product.offer);
         setOffers(onlyOffers);
+        console.log(onlyOffers);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -50,10 +52,8 @@ export function OffersCarousel() {
           partialVisible={false}
           itemClass="carousel-item"
       >
-        {offers.map(({ id, url, name }) => (
-          <ContainerItems key={id} $imageurl={url} >
-            <p>{name}</p>
-          </ContainerItems>
+        {offers.map((product) =>(
+          <CardProduct key={product.id} product={product}/>
         ))}
       </Carousel>
     </Container>
