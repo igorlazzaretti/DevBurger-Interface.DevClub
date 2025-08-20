@@ -5,6 +5,24 @@ export const Container = styled.div`
     padding-right: 40px;
     padding-left: 40px;
   }
+  // Setas do Carousel
+  .react-multiple-carousel__arrow::before {
+      color: #9758A6;
+      font-size: 50px;
+      font-weight: bolder;
+  }
+  .react-multiple-carousel__arrow--left {
+    left: -0.008vw;
+    min-width: 35px;
+    min-height: 95px;
+    background-color: transparent;
+  }
+  .react-multiple-carousel__arrow--right {
+    right: -0.008vw;
+    min-width: 35px;
+    min-height: 95px;
+    background-color: transparent;
+  }
 `;
 
 export const Title = styled.h2`

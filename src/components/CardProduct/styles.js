@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
   padding: 20px;
   border-radius: 8px;
   background-color: #fff;
@@ -16,6 +16,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 5px;
   }
   p {
     font-size: 16px;
@@ -23,13 +24,13 @@ export const Container = styled.div`
     color: #ff8C05;
     line-height: 20px;
     margin-top: 40px;
- }
- strong {
+  }
+  strong {
   font-size: 22px;
   color: #363636;
   line-height: 20px;
   font-weight: 800;
- }
+  }
 `
 export const CardImage = styled.img`
   height: 100px;

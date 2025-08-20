@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   .carousel-item {
     padding-right: 40px;
+    padding-left: 40px;
   }
   // Overflow para o carrossel
   overflow-x: hidden;
@@ -10,8 +11,27 @@ export const Container = styled.div`
   .react-multi-carousel-list {
     overflow: visible;
   }
+    // Setas do Carousel
+  .react-multiple-carousel__arrow::before {
+      color: #9758A6;
+      font-size: 50px;
+      font-weight: bolder;
+  }
+  .react-multiple-carousel__arrow--left {
+    left: -1.3vw;
+    min-width: 35px;
+    min-height: 95px;
+    background-color: transparent;
+  }
+  .react-multiple-carousel__arrow--right {
+    right: -1.3vw;
+    min-width: 35px;
+    min-height: 95px;
+    background-color: transparent;
+  }
 
-  padding-left: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-bottom: 40px;
 `;
 export const Title = styled.h2`

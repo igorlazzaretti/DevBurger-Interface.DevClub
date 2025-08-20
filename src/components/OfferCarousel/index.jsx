@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Container, Title } from "./styles";
 import { CardProduct } from "../CardProduct";
+import { formatPrice } from "../../utils/formatPrice";
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([]);
@@ -13,9 +14,12 @@ export function OffersCarousel() {
       try {
         const { data } = await api.get('/products');
         // Filtro para obter apenas as ofertas
-        const onlyOffers = data.filter(product => product.offer);
+        // .map Mapeia o array dos produtos e inclui o valor em Reais
+        const onlyOffers = data.filter(product => product.offer).map(product => ({
+          currencyValue: formatPrice(product.price),
+          ...product,
+        }));
         setOffers(onlyOffers);
-        console.log(onlyOffers);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
