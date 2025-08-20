@@ -4,19 +4,21 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Container, Title, ContainerItems } from "./styles";
 
-export function CategoriesCarousel() {
-  const [categories, setCategories] = useState([]);
+export function OffersCarousel() {
+  const [offers, setOffers] = useState([]);
 
   useEffect(() => {
-    async function loadCategories() {
+    async function loadProducts() {
       try {
-        const { data } = await api.get('/categories');
-        setCategories(data);
+        const { data } = await api.get('/products');
+        // Filtro para obter apenas as ofertas
+        const onlyOffers = data.filter(product => product.offer);
+        setOffers(onlyOffers);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     }
-    loadCategories();
+    loadProducts();
   }, []);
 
   // Responsividade do Carrossel exigido pela biblioteca react-multi-carousel
@@ -41,14 +43,14 @@ export function CategoriesCarousel() {
 
   return (
     <Container>
-      <Title>Categorias</Title>
+      <Title>Ofertas do Dia</Title>
       <Carousel
           responsive={responsive}
           infinite={true}
           partialVisible={false}
           itemClass="carousel-item"
       >
-        {categories.map(({ id, url, name }) => (
+        {offers.map(({ id, url, name }) => (
           <ContainerItems key={id} $imageurl={url} >
             <p>{name}</p>
           </ContainerItems>
