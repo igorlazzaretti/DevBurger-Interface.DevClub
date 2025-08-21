@@ -66,6 +66,6 @@ export const ContainerItems = styled.div`
     border-radius: 30px;
     font-size: 22.5px;
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 140px;
   }
 `;

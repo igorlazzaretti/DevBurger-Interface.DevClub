@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
   padding: 20px;
   border-radius: 8px;
   background-color: #fff;
@@ -16,14 +16,14 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 5px;
+    gap: 7px;
   }
   p {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     color: #ff8C05;
     line-height: 20px;
-    margin-top: 40px;
+    margin-top: 45px;
   }
   strong {
   font-size: 22px;
