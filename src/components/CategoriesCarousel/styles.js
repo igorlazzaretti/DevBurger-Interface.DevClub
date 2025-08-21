@@ -11,6 +11,9 @@ export const Container = styled.div`
       font-size: 50px;
       font-weight: bolder;
   }
+  .react-multiple-carousel__arrow:hover {
+    transform: scale(1.1);
+  }
   .react-multiple-carousel__arrow--left {
     left: -0.008vw;
     min-width: 35px;
