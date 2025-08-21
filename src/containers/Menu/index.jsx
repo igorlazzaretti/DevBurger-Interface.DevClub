@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Banner, CategoryMenu, ProductsContainer } from './styles';
+import { Container, Banner, CategoryMenu, ProductsContainer, CategoryButton } from './styles';
 import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice';
 import { CardProduct } from '../../components/CardProduct';
@@ -53,7 +53,15 @@ export function Menu() {
         </h1>
       </Banner>
       <CategoryMenu>
-
+        {/* Menu de Categorias, cada categoria é um link que leva para a rota /menu/:id */}
+        {categories.map(category => (
+          <CategoryButton
+            key={category.id}
+            to={`/menu/${category.id}`}
+          >
+            {category.name}
+          </CategoryButton>
+        ))}
       </CategoryMenu>
       <ProductsContainer>
         { products.map(product => (
