@@ -29,7 +29,7 @@ export const Banner = styled.div`
     color: #fff;
     line-height: 65px;
     position: absolute;
-    right: 10%;
+    right: 17%;
     top: 20%;
     text-align: center;
   }
@@ -78,10 +78,10 @@ export const CategoryButton = styled(Link)`
 export const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 60px;
-  gap: 80px;
+  padding: 40px;
+  gap: 60px;
   justify-content: center;
-  max-width: 1500px;
+  max-width: 1280px;
   margin: 50px auto 0px;
 `;
 

@@ -1,6 +1,6 @@
 <!-- Commit:
 :man_technologist:Interface DevBurguer
-Módulo 2 Aula 28 - Criando o Menu
+Módulo 2 Aula 29 - Montando a Tela de Categorias (Cardapio) pt1
 
 Figma: https://www.figma.com/design/iggbPQzl4BsDC0gKKifcwG/DevBurger?node-id=0-1&p=f&t=V6aRzXLheZhpJalg-0
 Em Desenvolvimento
@@ -23,7 +23,7 @@ A aplicação tem foco no mercado e, assim, foi desenvolvida utilizando uma vari
 
 CSS: usado para a estilização da aparência da página.
 <br>Javascript: Permite adicionar interatividade, animações, manipular o conteúdo dinamicamente e responder às ações do usuário.
-<br>React: permite criar componentes reutilizáveis, gerenciar o estado da aplicação de forma eficiente e simplificar o desenvolvimento de interfaces complexas.
+<br>React: permite criar componentes reutilizáveis, gerenciar o estado da aplicação de forma eficiente e simplificar o desenvolvimento de interfaces complexas.g
 <br>Axios: biblioteca Javascript para fazer requisições HTTP.
 <br>Styled-Components: uma biblioteca que permite escrever CSS dentro do Javascript.
 <br>React-Router-Dom: uma biblioteca para gerenciar rotas em aplicações React.
