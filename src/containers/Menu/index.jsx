@@ -3,7 +3,7 @@ import { Container, Banner, CategoryMenu, ProductsContainer, CategoryButton } fr
 import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice';
 import { CardProduct } from '../../components/CardProduct';
-import { replace, useNavigate } from 'react-router-dom';
+import { replace, useLocation, useNavigate } from 'react-router-dom';
 
 export function Menu() {
   // Estado do React para armazenar as categorias e produtos
@@ -13,8 +13,18 @@ export function Menu() {
   // Navigate é usado para navegar entre rotas
   const navigate = useNavigate();
   // Cateoria Ativa
-  const [activeCategory, setActiveCategory] = useState(0);
-
+  //UseLocation
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
+  // Confições para o useState caso venha da tela Home
+  const [activeCategory, setActiveCategory] = useState( () => {
+    const categoryId = +queryParams.get('categoria');
+    if (categoryId) {
+      return categoryId;
+    } else {
+      return 0; // Retorna 0 se não houver categoria ativa
+    }
+  });
   // Chama API para buscar as categorias
   useEffect(() => {
     async function loadCategories() {  // Função assíncrona para carregar categorias
