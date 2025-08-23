@@ -28,11 +28,17 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
+// Hook de Contexto do Usuário
+import { useUser } from "../../hooks/UserContext.jsx";
+
 
 export function Login() {
 
     // useNavigate
     const navigate = useNavigate();
+    // Contexto do Usuário
+    const { putUserData } = useUser();
+
 
     // Validação Yup
     const schema = yup.object({
@@ -59,7 +65,7 @@ export function Login() {
     const onSubmit = async (data) => {
 
         const {
-            data: {token}   // A variavel token é retornada do backend
+            data: userData
         } = await toast.promise(
 
             api.post('/session', {
@@ -82,7 +88,9 @@ export function Login() {
             }
         )
         // Salvando o token do usuário que logou no localStorage
-        localStorage.setItem('devburguer:token', token);
+        // localStorage.setItem('devburguer:token', token);
+        // Salando os dados do usuário no localStorage
+        putUserData(userData);
     };
 
 

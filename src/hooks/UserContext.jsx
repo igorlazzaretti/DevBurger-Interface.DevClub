@@ -3,14 +3,27 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
-  const [userInfo, setUserInfo] = useState({ id:1, name: 'Igor' });
-
-  function soma(a,b) {
-    return a+b;
+  const [userInfo, setUserInfo] = useState(null);
+  // Recebe as informações do Usuário e adiciona no state e no localStorage
+  const putUserData = (userInfo) => {
+    setUserInfo(userInfo);
+    localStorage.setItem('devburguer:userData', JSON.stringify(userInfo));
   }
+  // Logout do Usuário
+  const logout = () => {
+    setUserInfo({});
+    localStorage.removeItem('devburguer:userData');
+  }
+  // Mantém o userInfo atualizado com o localStorage
+  useEffect(() => {
+    const userInfoLocal = localStorage.getItem('devburguer:userData');
+    if(userInfoLocal) {
+      setUserInfo(JSON.parse(userInfo));
+    }
+    }, []);
 
   return (
-    <UserContext.Provider value={{soma, userInfo, setUserInfo }}>
+    <UserContext.Provider value={{ userInfo, putUserData }}>
       {children}
     </UserContext.Provider>
   );
