@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Banner, CategoryMenu, ProductsContainer, CategoryButton } from './styles';
+import { Container, Banner, CategoryMenu, ProductsContainer, CategoryButton, ReturnButton } from './styles';
 import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice';
 import { CardProduct } from '../../components/CardProduct';
@@ -97,6 +97,9 @@ export function Menu() {
           />
         ))}
       </ProductsContainer>
+      <ReturnButton type="button" onClick={() => navigate('/')}>
+        &lt; Voltar
+      </ReturnButton>
     </Container>
   )
 }

@@ -76,27 +76,26 @@ export const ProductsContainer = styled.div`
   justify-content: center;
   max-width: 1280px;
   margin: 50px auto 0px;
+
 `;
 
 export const ReturnButton = styled(Link)`
   text-decoration: none;
   cursor: pointer;
-  color: ${(props) => props.theme.orange};
-  font-size: 24px;
-  height: 52px;
-  font-weight: 900;
-  border-radius: 20px;
+  color: #9758A6;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 5px;
   padding: 10px 20px;
-  line-height: 20px;
-  border: none;
-  box-shadow:
-    rgba(0, 0, 0, 0.19) 0px 10px 20px,
-    rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  background: ${(props) => props.theme.purpleBackgroundlinear};
-  transition: 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+
   &:hover {
-    scale: calc(1.07);
-    border-bottom: 5px solid ${(props) => props.theme.orange};
-    background: linear-gradient(180deg, #61a120, rgb(71, 118, 24));
+    color: #814c8fff;
+  }
+  &:active {
+    color: #696969;
   }
 `;
