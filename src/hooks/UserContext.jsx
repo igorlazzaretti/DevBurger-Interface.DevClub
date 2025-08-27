@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
     localStorage.setItem('devburguer:userData', JSON.stringify(userInfo));
   }
   // Logout do Usuário
-  const logout = () => {
+    const logout = () => {
     setUserInfo({});
     localStorage.removeItem('devburguer:userData');
   }
@@ -18,12 +18,12 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const userInfoLocal = localStorage.getItem('devburguer:userData');
     if(userInfoLocal) {
-      setUserInfo(JSON.parse(userInfo));
+      setUserInfo(JSON.parse(userInfoLocal));
     }
     }, []);
 
   return (
-    <UserContext.Provider value={{ userInfo, putUserData }}>
+    <UserContext.Provider value={{ userInfo, putUserData, logout }}>
       {children}
     </UserContext.Provider>
   );

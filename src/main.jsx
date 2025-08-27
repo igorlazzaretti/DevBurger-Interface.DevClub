@@ -10,11 +10,10 @@ import { Header } from './components/Header'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Header />
     <AppProvider>
-    <RouterProvider router={router} />
-    <GlobalStyles />
-    <ToastContainer />
+      <RouterProvider router={router} />
+      <GlobalStyles />
+      <ToastContainer />
     </AppProvider>
   </StrictMode>,
 )

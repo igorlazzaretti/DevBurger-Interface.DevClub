@@ -32,8 +32,9 @@ export const Navigation = styled.nav`
     color: #fff;
   }
 `
-export const HeaderLink = styled.p`
-  color: #fff;
+export const HeaderLink = styled(Link)`
+  color: ${props => props.$isActive ? '#9758a6' : '#fff'};
+  border-bottom: ${props => props.$isActive ? '2px solid #9758a6' : 'none'};
   text-decoration: none;
   font-size: 14px;
   transition: color 200ms;
@@ -66,20 +67,27 @@ export const Profile = styled.div`
   }
 `
 export const LinkLogOut = styled.button`
-  color: #bb3719ff;
+  color: #e48241ff;
   text-decoration: none;
   font-weight: 700;
   background-color: transparent;
   border: none;
+  &:hover {
+    color: #bb3719ff;
+    cursor: pointer;
+  }
 `
 export const CartHeaderSection = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  color: #fff;
+  text-decoration: none;
 `
-export const HeaderCartLink = styled.p`
+export const HeaderCartLink = styled(Link)`
+  text-decoration: none;
+  color: #fff;
   &:hover {
     color: #e48241ff;
+  }
 `

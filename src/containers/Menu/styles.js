@@ -83,7 +83,7 @@ export const ReturnButton = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   color: #9758A6;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   border-radius: 5px;
@@ -91,9 +91,13 @@ export const ReturnButton = styled(Link)`
   transition: 0.2s ease-in-out;
   display: flex;
   justify-content: center;
-
+  position: fixed;
+  left: 3vw;
+  bottom: 5vh;
+  border: 1px solid #9758A6;
   &:hover {
     color: #814c8fff;
+    background-color: #f0f0f0;
   }
   &:active {
     color: #696969;
