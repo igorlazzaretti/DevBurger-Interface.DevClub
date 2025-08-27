@@ -7,10 +7,11 @@ export const Container = styled.div`
   background:
     linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
     url('${Background}');
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   background-color: #f0f0f0;
   gap: 20px;
+  overflow-x: hidden;
 `;
 export const Banner = styled.div`
   display: flex;
@@ -22,7 +23,6 @@ export const Banner = styled.div`
   background-position: center;
   background-size: cover;
   position: relative;
-
   h1 {
     font-size: 80px;
     font-family: 'Road Rage', sans-serif;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 97vw;
   .carousel-item {
     padding-right: 40px;
     padding-left: 40px;
