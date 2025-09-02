@@ -1,6 +1,5 @@
 import Logo from '../../assets/logo.svg';
-import { Footer } from '../../components/Footer';
-import { Header } from '../../components/Header';
+import { Footer, Header } from '../../components';
 import { Banner, Container, Title,Content } from './styles';
 import { useNavigate } from 'react-router-dom';
 

@@ -11,16 +11,18 @@ export const CartProvider = ({children}) => {
       // se produto ainda não foi adicionado retorna -1
     const cartIndex = cartProducts.findIndex( (prd) => prd.id === product.id)
     let newProductsInCart = []
-    if (cartIndex >= 0) { // se é a primeira veze que adicionamos o produto ao carrinho
-      newProductsInCart = cartProducts
-      newProductsInCart[cartIndex].quantity = newProductsInCart[cartIndex].quantity + 1
-
-      setCartProducts(newProductsInCart)
-    } else {
-      product.quantity = 1
-      newProductsInCart = [...cartProducts, product]
-      setCartProducts(newProductsInCart)
-    }
+  if (cartIndex >= 0) { // se é a primeira veze que adicionamos o produto ao carrinho
+    newProductsInCart = cartProducts.map((prd, idx) =>
+      idx === cartIndex
+        ? { ...prd, quantity: prd.quantity + 1 }
+        : prd
+    )
+    setCartProducts(newProductsInCart)
+  } else {
+    product.quantity = 1
+    newProductsInCart = [...cartProducts, product]
+    setCartProducts(newProductsInCart)
+  }
     updateLocalStorage(newProductsInCart)
   }
   //Use Efect para ver o Carrinho no console.log
@@ -37,9 +39,12 @@ export const CartProvider = ({children}) => {
 
   // Limpa o Carrinho e LocalStorag
   const clearCart = () => {
+    // usado quando finaliza a compra ou deseja esvaziar o carrinho
+    setCartProducts([])
+    updateLocalStorage([])
   }
   // Deleta um produto do Carrinho
-  const deleteProduct = (product) => {
+  const deleteProduct = (productId) => {
     // Filtramos e criamos um novo array
     const newCart = cartProducts.filter( (prd) => prd.id != productId)
     setCartProducts(newCart)
@@ -48,12 +53,13 @@ export const CartProvider = ({children}) => {
   // Adiciona o número de um mesmo produto
   const increaseProduct = (productId) => {
     // Percorre os produtos e quando encontrar acresce uma quantidade
-    const newCart = cartProducts.map.map((prd) => {
+    const newCart = cartProducts.map((prd) => {
       return prd.id === productId ? {...prd, quantity: prd.quantity + 1} : prd
     })
     setCartProducts(newCart)
     updateLocalStorage(newCart)
   }
+
   // Decresce a quantidade de um produto do carrinho
   const decreaseProduct = (productId) => {
     /* Encontra o item -> tira 1 unidade
@@ -65,13 +71,13 @@ export const CartProvider = ({children}) => {
     const cartIndex = cartProducts.findIndex((prd) => prd.id === productId)
     // Verificamos sua quantidade for maior que 1 para diminuir
     if (cartProducts[cartIndex].quantity > 1) {
-      const newCart = cartProducts.map.map((prd) => {
+      const newCart = cartProducts.map((prd) => {
       return prd.id === productId ? {...prd, quantity: prd.quantity - 1} : prd
       })
       setCartProducts(newCart)
       updateLocalStorage(newCart)
     } else { // Se igual ou menor que 1 deletamos
-      deleteProduct(productID)
+      deleteProduct(productId)
     }
   }
   // Faz o load do LocalStorage
@@ -80,7 +86,7 @@ export const CartProvider = ({children}) => {
     if (clienteCartData) {
       setCartProducts(JSON.parse(clienteCartData))
     }
-  })
+  },[])
 
   return (
     <CartContext.Provider
