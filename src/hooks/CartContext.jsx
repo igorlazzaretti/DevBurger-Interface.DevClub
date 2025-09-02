@@ -21,6 +21,7 @@ export const CartProvider = ({children}) => {
       newProductsInCart = [...cartProducts, product]
       setCartProducts(newProductsInCart)
     }
+    updateLocalStorage(newProductsInCart)
   }
   //Use Efect para ver o Carrinho no console.log
   useEffect( () => {
@@ -28,23 +29,59 @@ export const CartProvider = ({children}) => {
 
   }, [cartProducts])
 
+  const updateLocalStorage = (products) => {
+    localStorage.setItem('devburguer:cartInfo',
+      JSON.stringify(products)
+    )
+  }
 
-  // Limpa o Carrinho
+  // Limpa o Carrinho e LocalStorag
   const clearCart = () => {
-
   }
   // Deleta um produto do Carrinho
   const deleteProduct = (product) => {
-
+    // Filtramos e criamos um novo array
+    const newCart = cartProducts.filter( (prd) => prd.id != productId)
+    setCartProducts(newCart)
+    updateLocalStorage(newCart)
   }
   // Adiciona o número de um mesmo produto
   const increaseProduct = (productId) => {
-
+    // Percorre os produtos e quando encontrar acresce uma quantidade
+    const newCart = cartProducts.map.map((prd) => {
+      return prd.id === productId ? {...prd, quantity: prd.quantity + 1} : prd
+    })
+    setCartProducts(newCart)
+    updateLocalStorage(newCart)
   }
   // Decresce a quantidade de um produto do carrinho
   const decreaseProduct = (productId) => {
-
+    /* Encontra o item -> tira 1 unidade
+        Se item igual a 1:
+          não faz nada
+          ou deleta o produto
+    */
+    //Encontramos o produto dentro do array
+    const cartIndex = cartProducts.findIndex((prd) => prd.id === productId)
+    // Verificamos sua quantidade for maior que 1 para diminuir
+    if (cartProducts[cartIndex].quantity > 1) {
+      const newCart = cartProducts.map.map((prd) => {
+      return prd.id === productId ? {...prd, quantity: prd.quantity - 1} : prd
+      })
+      setCartProducts(newCart)
+      updateLocalStorage(newCart)
+    } else { // Se igual ou menor que 1 deletamos
+      deleteProduct(productID)
+    }
   }
+  // Faz o load do LocalStorage
+  useEffect(() => {
+    const clienteCartData = localStorage.getItem('devburguer:cartInfo')
+    if (clienteCartData) {
+      setCartProducts(JSON.parse(clienteCartData))
+    }
+  })
+
   return (
     <CartContext.Provider
       value={{
