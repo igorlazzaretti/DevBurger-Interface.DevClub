@@ -14,6 +14,13 @@ export const Th = styled.th`
   text-align: left;
   color: #fff;
   background-color: #484848;
+
+  &:first-child {
+    border-top-left-radius: 15px;
+  }
+  &:last-child {
+    border-top-right-radius: 15px;
+  }
   `
 export const Td = styled.td`
   padding: 16px;

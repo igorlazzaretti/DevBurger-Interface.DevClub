@@ -20,5 +20,6 @@ export const ContainerButton = styled.button`
     }
     &:active{
         color: black;
+        transform: scale(0.98);
     }
 `;

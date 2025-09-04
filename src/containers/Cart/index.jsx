@@ -1,5 +1,5 @@
 import Logo from '../../assets/logo.svg';
-import { Footer, CartItems } from '../../components';
+import { Footer, CartItems, CartResume } from '../../components';
 import { Banner, Container, Title,Content } from './styles';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,10 +13,10 @@ export function Cart() {
       </Banner>
       <Title>Checkout - Pedido</Title>
       <Content>
-        <CartItems />
-        {/* <CartResume /> */}
+        <CartItems/>
+        <CartResume/>
       </Content>
-      <Footer />
+      <Footer/>
     </Container>
   );
 }
