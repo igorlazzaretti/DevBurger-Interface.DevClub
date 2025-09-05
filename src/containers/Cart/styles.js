@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import textureBanner from '../../assets/texture.svg';
 import background from '../../assets/background.svg'
+
 export const Container = styled.div`
   width: 100%;
   background:
     linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
     url(${background});
   background-size: cover;
-  min-height: 50vh;
+  min-height: 90vh;
 `
 export const Banner = styled.div`
   background: url(${textureBanner});
@@ -41,6 +42,7 @@ export const Content = styled.div`
   grid-template-columns: 1fr 29%;
   gap: 20px;
   width: 100vw;
+  min-height: 40vh;
   max-width: 1280px;
   padding: 40px;
   margin: 0 auto;

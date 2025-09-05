@@ -15,6 +15,7 @@ export const Container = styled.div`
     width: 100%;
     border-radius: 20px;
     display: grid;
+    color: #828282;
     grid-gap: 5px 20%;
     grid-template-areas:
     'title title'
@@ -37,27 +38,33 @@ export const Container = styled.div`
   .items { grid-area: items;
     padding: 5px 20px;
   }
-  .items-price {grid-area: items-price;
-      padding: 5px 20px;
+  .items-price {
+    grid-area: items-price;
+    padding: 5px 20px;
+    text-align: end;
   }
-  .delivery-tax {grid-area: delivery-tax;
+  .delivery-tax {
+    grid-area: delivery-tax;
     padding: 5px 20px;
   }
-  .delivery-tax-price {grid-area: delivery-tax-price;
+  .delivery-tax-price {
+    grid-area: delivery-tax-price;
     padding: 5px 20px;
+    text-align: end;
   }
   .container-bottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 50%;
     align-items: center;
     font-size: 20px;
     font-weight: 700;
     margin-top: 24px;
-    width: 70%;
+    width: 100%;
     padding: 20px;
     * {
     color: #484848;
     font-weight: 700;
-  }
+    }
   }
 `

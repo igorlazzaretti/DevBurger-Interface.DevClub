@@ -46,7 +46,7 @@ export function CartItems() {
 
             </Table.Tr>
           ))
-        ) : ( <EmptyCart>Carrinho Vazio</EmptyCart> )}
+        ) : ( <EmptyCart>Carrinho Vazio 😢</EmptyCart> )}
       </Table.Body>
 
 

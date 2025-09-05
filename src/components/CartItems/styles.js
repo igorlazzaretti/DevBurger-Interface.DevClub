@@ -33,6 +33,12 @@ export const EmptyCart = styled.p`
   font-size: 20px;
   text-align: center;
   font-weight: bold;
+  width: 100%;
+  height: 100px;
+  text-align: right;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 `
 export const TotalPrice = styled.p`
   font-weight: bold;
@@ -43,4 +49,10 @@ export const TrashImage = styled.img`
   cursor: pointer;
   display: block;
   margin: auto;
+  &:hover {
+    transform: scale(1.09);
+  }
+  &:active {
+    transform: scale(0.92);
+  }
 `
