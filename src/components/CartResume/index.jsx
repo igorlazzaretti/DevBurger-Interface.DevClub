@@ -24,30 +24,46 @@ export function CartResume() {
 
   const submitOrder = async() => {
     const products = cartProducts.map( (product) => {
-      return { id: product.id, quantity: product.quantity}
+      return { id: product.id, quantity: product.quantity, price: product.price }
     })
 
-    try {
-      const { status } = await api.post(
-        '/orders', { products },
-        { validadeStatus: () => true })
-
-        if (status === 200 || status === 201) {
-          setTimeout( () => {
-            navigate('/')
-          }, 2000)
-          clearCart([])
-          toast.success('Pedido realizado com sucesso!')
-        } else if (status === 409) {
-          toast.error('Falha ao realizar seu pedido ☹️')
-        } else {
-          throw new Error()
-        }
-    } catch (error) {
-        toast.error('Pane no sistemam, alguém me desconfigurou! Tente novamente! 😢')
-    }
+  try {
+    console.log('Enviando para o backend:', { products });
+    const { data } = await api.post('/create-payment-intent', { products })
+    console.log(data)
+    // Se o Stripe retorna a intenção guardamos os dados no state
+    navigate('/checkout',{
+      state: data
+    })
+  } catch (err) {
+    // Exibe o erro específico retornado pelo backend, se houver.
+    const errorMessage = err.data?.error || 'Falha no sistema. Tente novamente.';
+    toast.error(errorMessage);
+    console.error('Erro ao criar a intenção de pagamento:', err.data?.data || err);
   }
 
+  //   try {
+  //     const { status } = await api.post(
+  //       '/orders', { products },
+  //       { validadeStatus: () => true })
+
+  //       if (status === 200 || status === 201) {
+  //         setTimeout( () => {
+  //           navigate('/')
+  //         }, 2000)
+  //         clearCart([])
+  //         toast.success('Pedido realizado com sucesso!')
+  //       } else if (status === 409) {
+  //         toast.error('Falha ao realizar seu pedido ☹️')
+  //       } else {
+  //         throw new Error()
+  //       }
+  //   } catch (error) {
+  //       toast.error('Pane no sistemam, alguém me desconfigurou! Tente novamente! 😢')
+  //   }
+  //   console.log(products)
+
+  }
 
   return (
     <div>
@@ -64,7 +80,7 @@ export function CartResume() {
         <p>{formatPrice(finalPrice + deliveryTax)}</p>
       </div>
     </Container>
-    <Button onClick={submitOrder} >Finalizar Pedido</Button>
+    <Button onClick={submitOrder}>Finalizar Pedido</Button>
     </div>
   )
 }

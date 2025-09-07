@@ -1,6 +1,6 @@
 <!-- Commit:
 :man_technologist:Interface DevBurguer
-Módulo 3 Aula 44 - Finalizando o Pedido com Axios
+Módulo 3 Aula 46 e 47 - Configurando Stripe no FrontEnd e BackEnd
 
 Figma: https://www.figma.com/design/iggbPQzl4BsDC0gKKifcwG/DevBurger?node-id=0-1&p=f&t=V6aRzXLheZhpJalg-0
 Em Desenvolvimento
