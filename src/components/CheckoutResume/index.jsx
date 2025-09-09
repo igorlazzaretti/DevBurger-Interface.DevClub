@@ -8,7 +8,7 @@ import { useCart } from '../../hooks/CartContext'
 import { api } from '../../services/api'
 import { formatPrice } from '../../utils/formatPrice'
 
-export function CartResume() {
+export function CheckoutResume() {
   const [finalPrice, setFinalPrice] = useState(0);
   const [deliveryTax] = useState(500)
   const navigate = useNavigate()
@@ -58,7 +58,6 @@ export function CartResume() {
         <p>{formatPrice(finalPrice + deliveryTax)}</p>
       </div>
     </Container>
-    <Button onClick={submitOrder}>Finalizar Pedido</Button>
     </div>
   )
 }
