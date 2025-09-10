@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import textureBanner from '../../assets/texture.svg';
+import textureBanner from '../../assets/banner-gif.gif';
 import background from '../../assets/background.svg'
 
 export const Container = styled.div`
@@ -8,7 +8,7 @@ export const Container = styled.div`
     linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
     url(${background});
   background-size: cover;
-  min-height: 90vh;
+  min-height: 89vh;
 `
 export const Banner = styled.div`
   background: url(${textureBanner});

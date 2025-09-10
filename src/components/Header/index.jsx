@@ -18,7 +18,7 @@ export function Header() {
       <Content>
         <Navigation>
           <div>
-            <img src={Logo} alt="Logo DevBurguer" style={{ height: 47}} />
+            <img src={Logo} alt="Logo DevBurguer" style={{ height: 65}} />
             <HeaderLink
               to="/"
               $isActive={pathname === '/'} >Home</HeaderLink>

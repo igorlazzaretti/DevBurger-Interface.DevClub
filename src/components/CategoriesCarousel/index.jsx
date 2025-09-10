@@ -59,6 +59,7 @@ export function CategoriesCarousel() {
               onClick={() => {
                 navigate(`/cardapio?categoria=${id}`);
               }}
+              title={`Ir para o Cardápio de ${name}`}
             >{name}
             </CategoryButton>
           </ContainerItems>

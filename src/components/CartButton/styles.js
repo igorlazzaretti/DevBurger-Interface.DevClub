@@ -9,7 +9,10 @@ export const ContainerButton = styled.button`
   border:0;
   background: ${(props) => props.theme.purple} ;
   color:${(props) => props.theme.whitefff};
-  &:hover{
+  &:hover {
     background: #6F3575;
+  }
+  &:active {
+    transform: scale(0.93);
   }
 `

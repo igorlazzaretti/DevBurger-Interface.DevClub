@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import BackgroundLogin from '../../assets/background-login.svg';
+import BackgroundLogin from '../../assets/banner-gif.gif';
 import Background from '../../assets/background.svg';
 
 import { Link as ReactLink } from 'react-router-dom';

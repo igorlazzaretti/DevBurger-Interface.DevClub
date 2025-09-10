@@ -1,6 +1,7 @@
 import { Table } from '../index'
 import { useCart } from '../../hooks/CartContext'
 import TrashIcon from '../../assets/trash.svg'
+import { toast } from 'react-toastify'
 import { formatPrice } from '../../utils/formatPrice';
 import { ProductImage, ButtonGroup, EmptyCart, TotalPrice, TrashImage } from './styles';
 
@@ -31,17 +32,29 @@ export function CartItems() {
               <Table.Td>{product.currencyValue}</Table.Td>
               <Table.Td>
                 <ButtonGroup>
-                  <button onClick={ () => decreaseProduct(product.id)}>-</button>
+                  <button onClick={ () => {
+                    decreaseProduct(product.id);
+                    if(product.quantity === 1) {
+                      toast.error(`${product.name} removido(s) do carrinho`)
+                    } else {
+                    toast.error(`Um ${product.name} decrescido(s) do carrinho`)}}}>-</button>
                   {product.quantity}
-                  <button onClick={ () => increaseProduct(product.id)}>+</button>
+                  <button onClick={ () => {
+                    increaseProduct(product.id);
+                    toast.success(`Um ${product.name} acrescido(s) ao carrinho`)}}>+</button>
                 </ButtonGroup>
               </Table.Td>
               <Table.Td>
                 <TotalPrice>{formatPrice(product.quantity * product.price)}</TotalPrice>
               </Table.Td>
               <Table.Td>
-                <TrashImage src={TrashIcon}
-                  alt="Lixeira" onClick={() => deleteProduct(product.id)}/>
+                <TrashImage
+                  src={TrashIcon}
+                  alt="Lixeira"
+                  onClick={() => {
+                    deleteProduct(product.id);
+                    toast.error(`${product.name} removido(s) do carrinho`) }}
+                />
               </Table.Td>
 
             </Table.Tr>

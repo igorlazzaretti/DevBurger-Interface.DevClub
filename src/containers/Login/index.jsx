@@ -30,6 +30,7 @@ import * as yup from "yup";
 
 // Hook de Contexto do Usuário
 import { useUser } from "../../hooks/UserContext.jsx";
+import { Footer } from "../../components/index.js";
 
 
 export function Login() {
@@ -97,6 +98,7 @@ export function Login() {
 
     // Retorno
     return (
+        <>
         <Container>
             <LeftContainer>
                 <img src={Logo} alt="logo-devburger" />
@@ -127,5 +129,6 @@ export function Login() {
                 </p>
             </RigthContainer>
         </Container>
+        </>
     );
 }

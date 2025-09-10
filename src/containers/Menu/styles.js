@@ -17,7 +17,7 @@ export const Banner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 415px;
+  height: 30vh;
   background: url('${BannerHamburguer}') no-repeat;
   background-color: #1f1f1f;
   background-position: center;
@@ -30,7 +30,7 @@ export const Banner = styled.div`
     line-height: 65px;
     position: absolute;
     right: 17%;
-    top: 20%;
+    top: 11%;
     text-align: center;
   }
   span {

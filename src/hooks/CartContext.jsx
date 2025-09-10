@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const CartContext = createContext({});
 
@@ -28,8 +29,11 @@ export const CartProvider = ({children}) => {
   //Use Efect para ver o Carrinho no console.log
   useEffect( () => {
     console.log(cartProducts)
+  // useEffect( () => {
+  //   console.log(cartProducts)
 
   }, [cartProducts])
+  // }, [cartProducts])
 
   const updateLocalStorage = (products) => {
     localStorage.setItem('devburguer:cartInfo',

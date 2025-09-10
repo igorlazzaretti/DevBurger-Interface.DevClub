@@ -3,8 +3,22 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 100vw;
-  height: 72px;
-  background-color: #1f1f1f;
+  height: 7vh;
+  /* background-color: #1f1f1f; */
+  background: linear-gradient(-10deg, #1f1f1f, #1f1f1f, #1f1f1ff1, #1f1f1fe1, #1f1f1f, #1f1f1f, #1f1f1f);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  @keyframes gradient {
+      0% {
+          background-position: 0% 30%;
+      }
+      50% {
+          background-position: 60% 20%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
 `
 export const Content = styled.div`
   display: flex;
@@ -14,7 +28,7 @@ export const Content = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding-top: 10px;
-  height: 72px;
+  height: 7vh;
 `
 export const Navigation = styled.nav`
   display: flex;

@@ -24,38 +24,18 @@ export const router = createBrowserRouter([
     },
     {
         path: '/cardapio',
-        element: (
-            <>
-            <Header />
-            <Menu />
-            </>
-        )
+        element: <Menu />
     },
     {
         path: '/carrinho',
-        element: (
-            <>
-            <Header />
-            <Cart />
-            </>
-        )
+        element: <Cart />
     },
     {
         path: '/checkout',
-        element: (
-            <>
-            <Header />
-            <Checkout />
-            </>
-        )
+        element: <Checkout />
     },
     {
         path: '/complete',
-        element: (
-            <>
-            <Header />
-            <CompletePayment />
-            </>
-        )
+        element: <CompletePayment />
     }
 ]);

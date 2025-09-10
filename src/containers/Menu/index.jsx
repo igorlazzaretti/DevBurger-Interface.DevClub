@@ -4,6 +4,7 @@ import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice';
 import { CardProduct } from '../../components/CardProduct';
 import { replace, useLocation, useNavigate } from 'react-router-dom';
+import { Footer, Header } from '../../components';
 
 export function Menu() {
   // Estado do React para armazenar as categorias e produtos
@@ -71,6 +72,8 @@ export function Menu() {
   }, [activeCategory, products]);
 
   return (
+    <>
+    <Header />
     <Container>
       <Banner>
         <h1> O MELHOR <br/> HAMBURGUER <br/> ESTÁ AQUI <br/>
@@ -101,5 +104,7 @@ export function Menu() {
         &lt; Voltar
       </ReturnButton>
     </Container>
+    <Footer/>
+  </>
   )
 }
