@@ -3,8 +3,9 @@ import { Container, Banner, CategoryMenu, ProductsContainer, CategoryButton, Ret
 import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice';
 import { CardProduct } from '../../components/CardProduct';
-import { replace, useLocation, useNavigate } from 'react-router-dom';
-import { Footer, Header } from '../../components';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { BackToTop, Footer, Header } from '../../components';
+
 
 export function Menu() {
   // Estado do React para armazenar as categorias e produtos
@@ -105,6 +106,7 @@ export function Menu() {
       </ReturnButton>
     </Container>
     <Footer/>
+    <BackToTop/>
   </>
   )
 }

@@ -1,5 +1,5 @@
 import Logo from '../../assets/logo.svg';
-import { Footer, CartItems, CartResume, Header } from '../../components';
+import { Footer, CartItems, CartResume, Header, BackToTop } from '../../components';
 import { Banner, Container, Title,Content } from './styles';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,6 +21,7 @@ export function Cart() {
         </Content>
       </Container>
     <Footer/>
+    <BackToTop/>
   </>
   )
 }

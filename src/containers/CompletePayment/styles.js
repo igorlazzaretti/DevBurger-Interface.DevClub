@@ -24,7 +24,7 @@ export const CompleteForm = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;  
+  border-radius: 12px;
   box-shadow: 5px 5px 10px #f1f1f1 ;
   background-color: #fff;
 `
@@ -85,7 +85,8 @@ export const DetailsLink = styled.a`
 `
 export const RetryButton = styled.a`
   padding: 12px 24px;
-  background-color: #9758a6; /* Cor padrão de botão do projeto */
+  background-color: #0055de; 
+  text-decoration: none;
   color: white;
   border-radius: 20px;
   text-decoration: none;

@@ -35,6 +35,8 @@ const STATUS_CONTENT_MAP = {
     text: "Pagamento Efetuado com Sucesso.",
     iconColor: "#30B130",
     icon: SuccessIcon,
+    button: "Voltar para a Home",
+    url: "/",
   },
   processing: {
     text: "Seu pagamento está sendo processado.",
@@ -45,11 +47,15 @@ const STATUS_CONTENT_MAP = {
     text: "Seu pagament falhou, por favor, tente novamente.",
     iconColor: "#DF1B41",
     icon: ErrorIcon,
+    url: "/checkout",
+    button: "Voltar para a tela de Pagamento",
   },
   default: {
     text: "Algo deu errado, por favor, tente novamente.",
     iconColor: "#DF1B41",
     icon: ErrorIcon,
+    url: "/checkout",
+    button: "Voltar para a tela de Pagamento",
   }
 };
 
@@ -111,7 +117,8 @@ export function CompletePayment() {
           <path d="M8.66672 0C8.18347 0 7.79172 0.391751 7.79172 0.875C7.79172 1.35825 8.18347 1.75 8.66672 1.75H11.5126L4.83967 8.42295C4.49796 8.76466 4.49796 9.31868 4.83967 9.66039C5.18138 10.0021 5.7354 10.0021 6.07711 9.66039L12.7501 2.98744V5.83333C12.7501 6.31658 13.1418 6.70833 13.6251 6.70833C14.1083 6.70833 14.5001 6.31658 14.5001 5.83333V0.875C14.5001 0.391751 14.1083 0 13.6251 0H8.66672Z" fill="#0055DE"/>
           </svg>
       </DetailsLink>}
-      {(status === 'requires_payment_method' || status === 'default') && <RetryButton href="/checkout">Tente Novamente</RetryButton>}
+      <RetryButton href={STATUS_CONTENT_MAP[status].url}>
+        {STATUS_CONTENT_MAP[status].button}</RetryButton>
     </CompleteForm>
     </Container>
     <Footer/>

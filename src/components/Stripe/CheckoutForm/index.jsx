@@ -84,6 +84,7 @@ export default function CheckoutForm() {
         toast.error("Pane no sistema, alguém me desconfigurou! Tente novamente! 😢");
       }
     } else if (paymentIntent) {
+      // Passa o status atualizado para o cliente
       setTimeout(() => {
         navigate(`/complete?payment_intent_client_secret=${paymentIntent.client_secret}`);
       }, 1000);
