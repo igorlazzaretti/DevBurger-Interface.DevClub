@@ -1,14 +1,15 @@
 import Logo from '../../assets/logo.svg';
-import { Footer, CartItems, CartResume, Header, BackToTop } from '../../components';
-import { Banner, Container, Title,Content } from './styles';
+import { CartItems, CartResume, BackToTop } from '../../components';
+import { Banner, Container, Title,Content, ReturnButton } from './styles';
 import { useNavigate } from 'react-router-dom';
+// import { ReturnButton } from '../../components/ReturnButton';
+
 
 export function Cart() {
   const navigate = useNavigate();
 
   return (
     <>
-    <Header/>
       <Container>
         <Banner>
           <img src={Logo} alt="Logo do DevBurguer"
@@ -20,7 +21,9 @@ export function Cart() {
           <CartResume/>
         </Content>
       </Container>
-    <Footer/>
+      <ReturnButton type="button" onClick={() => navigate('/cardapio')}>
+        &lt; Cardápio
+      </ReturnButton>
     <BackToTop/>
   </>
   )

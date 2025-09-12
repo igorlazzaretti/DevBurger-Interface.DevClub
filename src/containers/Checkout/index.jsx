@@ -1,7 +1,7 @@
 import { Elements } from "@stripe/react-stripe-js"
 import { useLocation } from "react-router-dom"
 import stripePromise from '../../config/stripeConfig'
-import { CheckoutForm, Footer, Header } from '../../components'
+import { CheckoutForm, } from '../../components'
 import { Container } from "./styles"
 
 
@@ -14,13 +14,11 @@ export function Checkout() {
   }
   return (
     <>
-    <Header/>
     <Container>
     <Elements stripe={stripePromise } options={ {clientSecret }}>
       <CheckoutForm />
     </Elements>
     </Container>
-    <Footer/>
     </>
   )
 }

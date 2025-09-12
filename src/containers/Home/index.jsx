@@ -14,7 +14,6 @@ export function Home() {
                     <OffersCarousel />
                 </Content>
             </Container>
-            <Footer />
         </main>
     )
 }

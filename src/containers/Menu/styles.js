@@ -19,7 +19,7 @@ export const Banner = styled.div`
   align-items: center;
   height: 30vh;
   background: url('${BannerHamburguer}') no-repeat;
-  background-color: #1f1f1f;
+  background-color: ${(props) => props.theme.mainBlack};
   background-position: center;
   background-size: cover;
   position: relative;

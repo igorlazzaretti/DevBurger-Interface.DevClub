@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
   margin-bottom: 20px;
   * {
-    color: #484848;
+    color: ${props => props.theme.secondBlack};
     font-weight: 500;
   }
   .container-top {

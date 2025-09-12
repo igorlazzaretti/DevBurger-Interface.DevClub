@@ -74,7 +74,6 @@ export function Menu() {
 
   return (
     <>
-    <Header />
     <Container>
       <Banner>
         <h1> O MELHOR <br/> HAMBURGUER <br/> ESTÁ AQUI <br/>
@@ -105,7 +104,6 @@ export function Menu() {
         &lt; Voltar
       </ReturnButton>
     </Container>
-    <Footer/>
     <BackToTop/>
   </>
   )

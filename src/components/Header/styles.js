@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const Container = styled.div`
   width: 100vw;
   height: 7vh;
-  /* background-color: #1f1f1f; */
   background: linear-gradient(-10deg, #1f1f1f, #1f1f1f, #1f1f1ff1, #1f1f1fe1, #1f1f1f, #1f1f1f, #1f1f1f);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;

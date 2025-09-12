@@ -28,7 +28,7 @@ export const Container = styled.div`
   }
   strong {
   font-size: 22px;
-  color: #363636;
+  color: ${props => props.theme.black};
   line-height: 20px;
   font-weight: 800;
   }

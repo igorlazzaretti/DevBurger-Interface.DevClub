@@ -90,7 +90,6 @@ export function CompletePayment() {
 
   return (
     <>
-    <Header/>
     <Container>
       <CompleteForm>
       <StatusIcon backgroundColor={STATUS_CONTENT_MAP[status].iconColor}>
@@ -121,7 +120,6 @@ export function CompletePayment() {
         {STATUS_CONTENT_MAP[status].button}</RetryButton>
     </CompleteForm>
     </Container>
-    <Footer/>
   </>
   );
 }
