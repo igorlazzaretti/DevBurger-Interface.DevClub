@@ -27,11 +27,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-
 // Hook de Contexto do Usuário
 import { useUser } from "../../hooks/UserContext.jsx";
-import { Footer } from "../../components/index.js";
-
 
 export function Login() {
 

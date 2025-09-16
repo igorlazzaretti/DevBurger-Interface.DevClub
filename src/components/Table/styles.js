@@ -8,13 +8,12 @@ export const Root = styled.table`
 `
 export const Header = styled.thead`
 `
-export const Tr = styled.tr``
 export const Th = styled.th`
   padding: 16px;
   text-align: left;
   color: #fff;
   background-color: #484848;
-
+  border-bottom: 2px solid #484848;
   &:first-child {
     border-top-left-radius: 15px;
   }
@@ -22,6 +21,12 @@ export const Th = styled.th`
     border-top-right-radius: 15px;
   }
   `
+export const Tr = styled.tr`
+  border-bottom: 1.5px dashed #484848;
+    &:last-child {
+    border-bottom: 2px dashed #fff;
+  }
+`
 export const Td = styled.td`
   padding: 16px;
   color: #484848;

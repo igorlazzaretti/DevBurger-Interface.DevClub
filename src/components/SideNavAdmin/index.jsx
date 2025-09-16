@@ -1,9 +1,34 @@
+import { navLinks } from './navLinks'
+import Logo from '../../assets/logo.svg'
+import { SignOut, House } from '@phosphor-icons/react'
+import { useUser } from '../../hooks/UserContext'
+import { Container, NavLinksContainer, Footer, NavLink } from './styles'
+
 
 export function SideNavAdmin() {
+  const { logout } = useUser()
 
   return  (
-    <div>
-      <h2> ADmin</h2>
-      </div>
+    <Container>
+      <img src={Logo} alt="DevBurguer Logo" />
+      <NavLinksContainer>
+        {navLinks.map( (link) => (
+          <NavLink key={link.id} to={link.path}>
+                  {link.icon}
+            <span>{link.label}</span>
+          </NavLink>
+        ))}
+      </NavLinksContainer>
+      <Footer>
+        <NavLink to='/'>
+          <House />
+          <span>Home</span>
+        </NavLink>
+        <NavLink to='/login' onClick={logout}>
+          <SignOut />
+          <span>Sair</span>
+        </NavLink>
+      </Footer>
+    </Container>
   )
 }

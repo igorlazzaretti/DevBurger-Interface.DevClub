@@ -12,6 +12,8 @@ export function Header() {
     logout(); // Chama a função de logout do hook useUser
     navigate('/login'); // Redireciona para a página inicial após logout
   }
+  const { admin: isAdmin } =
+    JSON.parse(localStorage.getItem('devburguer:userData')) || {}
 
   return (
     <Container>
@@ -27,6 +29,15 @@ export function Header() {
               to="/cardapio"
               $isActive={pathname === '/cardapio'}
             >Cardápio</HeaderLink>
+            {isAdmin && (
+              <>
+                <h3>|</h3>
+                <HeaderLink
+                  to="/admin/pedidos"
+                  $isActive={pathname.includes('/admin')}
+                >Pedidos</HeaderLink>
+              </>
+            )}
           </div>
         </Navigation>
         <Options>
