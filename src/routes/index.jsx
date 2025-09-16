@@ -8,14 +8,20 @@ import {
   Cart,
   Checkout,
   CompletePayment,
+  Admin
 } from '../containers';
 import { UserLayout } from '../layout/UserLayout';
+import { AdminLayout } from '../layout/AdminLayout';
 
 export function Router() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Register />} />
+
+    <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin/home"  element={<Admin />} />
+    </Route>
 
       <Route path="/" element={<UserLayout />}>
         <Route path="/"         element={<Home />} />

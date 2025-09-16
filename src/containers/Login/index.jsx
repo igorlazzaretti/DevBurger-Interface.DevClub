@@ -79,8 +79,11 @@ export function Login() {
                 success: {
                     render() {
                         setTimeout(() => {
-                            // Navega para a Home, após 2 Segundos
-                            navigate('/');
+                            if (userData?.admin) {
+                                navigate('/admin/home')
+                            } else {
+                                navigate('/')
+                            }
                         }, 2000);
                     return 'Login efetuado com sucesso!🎉';
                     },
