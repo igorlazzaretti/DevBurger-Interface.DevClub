@@ -10,13 +10,13 @@ export const navLinks = [
   {
     id: 2,
     label: 'Produtos',
-    path: 'admin/pedidos',
+    path: 'admin/produtos',
     icon: <List />
   },
   {
     id: 3,
     label: 'Adicionar Produto',
-    path: 'admin/pedidos',
+    path: 'admin/novo-produto',
     icon: <ListPlus />
   }
 ]
