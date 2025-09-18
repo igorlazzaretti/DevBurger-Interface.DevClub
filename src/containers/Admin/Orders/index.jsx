@@ -6,9 +6,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Row } from './row';
-import { useEffect, useState } from 'react';
 
+import { useEffect, useState } from 'react';
 import { api } from '../../../services/api';
+import { formatDate } from '../../../utils/formatDate';
 
 
 
@@ -32,7 +33,7 @@ export function Orders() {
     return {
       name: order.user.name,
       order: order._id,
-      date: new Date(order.createdAt).toLocaleString('pt-BR'),
+      date: formatDate(order.createdAt),
       status: order.status,
       products: order.products,
     };

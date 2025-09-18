@@ -11,9 +11,20 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { ProductImage, SelectStatus } from './styles';
+import { orderStatusOptions as options } from './orderStatus';
+import { api} from '../../../services/api';
+
+
 
 export function Row({ row }) {
   const [open, setOpen] = useState(false);
+  console.log('Row',row)
+
+  async function newStatusOrder(id, status) {
+    await api.put(`orders/${id}`, { status })
+    console.log('status:', status)
+  }
 
   return (
     <>
@@ -28,11 +39,20 @@ export function Row({ row }) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.orderId}
+          {row.order}
         </TableCell>
         <TableCell>{row.name}</TableCell>
         <TableCell>{row.date}</TableCell>
-        <TableCell>{row.status}</TableCell>
+        <TableCell>
+          <SelectStatus
+            options={options.filter((status) => status.id !== 0)}
+            placeholder='Status do Pedido'
+            defaultValue={options.find((status) => status.label === row.status
+              || status.id === 7)}
+             onChange={
+              (status) => newStatusOrder(row.order, status.label)}
+            />
+          </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -59,7 +79,7 @@ export function Row({ row }) {
                       <TableCell>{product.name}</TableCell>
                       <TableCell>{product.category}</TableCell>
                       <TableCell>
-                        <img src={product.url} alt={`Imagem de ${product.name}`} style={{ width: '60px', borderRadius: '5px' }} />
+                        <ProductImage src={product.url} alt={`Imagem de ${product.name}`} />
                       </TableCell>
                     </TableRow>
                   ))}
