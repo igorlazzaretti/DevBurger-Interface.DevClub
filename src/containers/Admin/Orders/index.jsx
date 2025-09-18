@@ -31,8 +31,8 @@ export function Orders() {
   function createData( order ) {
     return {
       name: order.user.name,
-      order:order.user._id,
-      date: order.createdAt,
+      order: order._id,
+      date: new Date(order.createdAt).toLocaleString('pt-BR'),
       status: order.status,
       products: order.products,
     };
@@ -55,9 +55,9 @@ export function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {rows.map((row) => (
-            // <Row key={row._id} row={row} />
-          ))} */}
+          {rows.map((row) => (
+            <Row key={row._id} row={row} />
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
