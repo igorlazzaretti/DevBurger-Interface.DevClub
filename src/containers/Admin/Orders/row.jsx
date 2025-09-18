@@ -14,17 +14,28 @@ import { useState } from 'react';
 import { ProductImage, SelectStatus } from './styles';
 import { orderStatusOptions as options } from './orderStatus';
 import { api} from '../../../services/api';
+import { set } from 'react-hook-form';
 
 
 
-export function Row({ row }) {
+export function Row({ row, setOrders, orders }) {
   const [open, setOpen] = useState(false);
-  console.log('Row',row)
-
+  const [loading, setLoading] = useState(false);
+  // console.log('Row',row)
   async function newStatusOrder(id, status) {
+    try {
+    setLoading(true)
     await api.put(`orders/${id}`, { status })
-    console.log('status:', status)
+
+    const orderUpdate = orders.map( order => order._id === id ? {...order, status} : order)
+    setOrders(orderUpdate)
+
+  } catch(err) {
+    console.error(err)
+  } finally {
+    setLoading(false)
   }
+}
 
   return (
     <>
@@ -49,8 +60,9 @@ export function Row({ row }) {
             placeholder='Status do Pedido'
             defaultValue={options.find((status) => status.label === row.status
               || status.id === 7)}
-             onChange={
+            onChange={
               (status) => newStatusOrder(row.order, status.label)}
+            isLoading={loading}
             />
           </TableCell>
       </TableRow>
@@ -95,6 +107,8 @@ export function Row({ row }) {
 }
 
 Row.propTypes = {
+  setOrders: PropTypes.func.isRequired,
+  orders: PropTypes.array.isRequired,
   row: PropTypes.shape({
     orderId: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
