@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useState } from 'react';
+import { Orders } from '.';
 
 
 export function Row({ row }) {
@@ -30,10 +31,11 @@ export function Row({ row }) {
         <TableCell component="th" scope="row">
           {row.name}
         </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
-        <TableCell align="right">{row.carbs}</TableCell>
-        <TableCell align="right">{row.protein}</TableCell>
+        <TableCell align="right">{row.name}</TableCell>
+        <TableCell align="right">{row.orderId}</TableCell>
+        <TableCell align="right">{row.createdAt}</TableCell>
+        <TableCell align="right">{row.status}</TableCell>
+        <TableCell align="right">{row.products}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -52,7 +54,7 @@ export function Row({ row }) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.history.map((historyRow) => (
+                  {Orders.map((row) => (
                     <TableRow key={historyRow.date}>
                       <TableCell component="th" scope="row">
                         {historyRow.date}
