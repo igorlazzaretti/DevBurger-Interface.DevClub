@@ -8,7 +8,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    height: 100vw;
+    height: 100vh;
     width: 100%;
     background-color: ${(props) => props.theme.secondWhite};
     overflow-y: auto;

@@ -28,9 +28,9 @@ export function CheckoutResume() {
     })
 
   try {
-    console.log('Enviando para o backend:', { products });
+    // console.log('Enviando para o backend:', { products });
     const { data } = await api.post('/create-payment-intent', { products })
-    console.log(data)
+    // console.log(data)
     // Se o Stripe retorna a intenção guardamos os dados no state
     navigate('/checkout',{
       state: data

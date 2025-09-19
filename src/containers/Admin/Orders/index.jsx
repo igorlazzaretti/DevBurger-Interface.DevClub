@@ -10,12 +10,16 @@ import { Row } from './row';
 import { useEffect, useState } from 'react';
 import { api } from '../../../services/api';
 import { formatDate } from '../../../utils/formatDate';
-
-
+import { orderStatusOptions } from './orderStatus';
+import { Filter, FilterOptions } from './styles';
 
 export function Orders() {
-  // Ordens da API
+  // Pedidos da API
   const [orders, setOrders] = useState([])
+  // Pedidos Filtrados
+  const [filteredOrders, setFilteredOrders] = useState([])
+  // Status Ativo
+  const [activeStatus, setActiveStatus] = useState(1)
   // Linhas da tabela
   const [rows, setRows] = useState([])
 
@@ -24,6 +28,7 @@ export function Orders() {
     async function loadOrders() {
       const { data } = await api.get('/orders')
       setOrders(data)
+      setFilteredOrders(data)
     }
     loadOrders()
   }, [])
@@ -39,11 +44,30 @@ export function Orders() {
     };
   }
   useEffect( () => {
-    const newRows = orders.map( order => createData(order) )
+    const newRows = filteredOrders.map( order => createData(order) )
     setRows(newRows)
-  }, [orders])
+  }, [filteredOrders])
+
+  function handleStatus(status) {
+    if(status.id === 1) {
+      setFilteredOrders(orders)
+    } else {
+      const newFilteredOrders = orders.filter( order => order.status === status.label)
+      setFilteredOrders(newFilteredOrders)
+    }
+    setActiveStatus(status.id)
+  }
 
   return (
+    <>
+    <Filter>
+      {orderStatusOptions.map((status) => (
+        <FilterOptions key={status.id} onClick={() => handleStatus(status)}
+          $isActiveStatus={activeStatus === status.id}>
+          {status.label}
+        </FilterOptions>
+      ))}
+    </Filter>
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableHead>
@@ -58,11 +82,12 @@ export function Orders() {
         <TableBody>
           {rows.map((row) => (
             <Row
-              key={row.orderId} row={row}
+              key={row.order} row={row}
               orders={orders} setOrders={setOrders} />
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }

@@ -9,7 +9,7 @@ import { useResolvedPath } from 'react-router-dom'
 export function SideNavAdmin() {
   const { logout } = useUser()
   const { pathname } = useResolvedPath()
-  console.log('pathname:',pathname)
+  // console.log('pathname:',pathname)
 
   return  (
     <Container>

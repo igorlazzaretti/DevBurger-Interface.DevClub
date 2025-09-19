@@ -28,7 +28,7 @@ export const CartProvider = ({children}) => {
   }
   //Use Efect para ver o Carrinho no console.log
   useEffect( () => {
-    console.log(cartProducts)
+    // console.log(cartProducts)
   // useEffect( () => {
   //   console.log(cartProducts)
 

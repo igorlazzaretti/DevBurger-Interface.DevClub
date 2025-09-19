@@ -14,14 +14,13 @@ import { useState } from 'react';
 import { ProductImage, SelectStatus } from './styles';
 import { orderStatusOptions as options } from './orderStatus';
 import { api} from '../../../services/api';
-import { set } from 'react-hook-form';
-
-
 
 export function Row({ row, setOrders, orders }) {
+  // console.log('row',row)
+  // console.log('options',options)
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  // console.log('Row',row)
+ // console.log('Row',row)
   async function newStatusOrder(id, status) {
     try {
     setLoading(true)
@@ -29,7 +28,6 @@ export function Row({ row, setOrders, orders }) {
 
     const orderUpdate = orders.map( order => order._id === id ? {...order, status} : order)
     setOrders(orderUpdate)
-
   } catch(err) {
     console.error(err)
   } finally {
@@ -56,12 +54,14 @@ export function Row({ row, setOrders, orders }) {
         <TableCell>{row.date}</TableCell>
         <TableCell>
           <SelectStatus
-            options={options.filter((status) => status.id !== 0)}
+            menuPortalTarget={document.body}
+            styles={{ menuPortal: (provided) => ({ ...provided, zIndex: 9999 }) }}
+            options={options.filter((status) => status.id !== 1)}
             placeholder='Status do Pedido'
-            defaultValue={options.find((status) => status.label === row.status
-              || status.id === 7)}
+            defaultValue={options.find(option =>
+              option.value === row.status)}
             onChange={
-              (status) => newStatusOrder(row.order, status.label)}
+              (status) => newStatusOrder(row.order, status.value)}
             isLoading={loading}
             />
           </TableCell>
@@ -110,7 +110,7 @@ Row.propTypes = {
   setOrders: PropTypes.func.isRequired,
   orders: PropTypes.array.isRequired,
   row: PropTypes.shape({
-    orderId: PropTypes.string.isRequired,
+    order: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     products: PropTypes.arrayOf(PropTypes.shape({

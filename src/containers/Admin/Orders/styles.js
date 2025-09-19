@@ -9,3 +9,24 @@ export const ProductImage = styled.img`
 export const SelectStatus = styled(Select)`
   width: 240px;
 `
+export const Filter = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 28px 0;
+  gap: 50px;
+`
+export const FilterOptions = styled.button`
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: ${ props => props.$isActiveStatus ? `${props.theme.purple}` : `${props.theme.darkgray}`};
+  border-bottom: ${ props => props.$isActiveStatus ? `1px solid ${props.theme.purple}` : 'none'};
+  font-size: 18px;
+  line-height: 20px;
+  padding-bottom: 5px;
+`
+export const TableContainer = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`
