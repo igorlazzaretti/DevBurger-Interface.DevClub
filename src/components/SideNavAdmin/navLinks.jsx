@@ -4,19 +4,19 @@ export const navLinks = [
   {
     id: 1,
     label: 'Pedidos',
-    path: 'admin/pedidos',
+    path: 'pedidos',
     icon: <Receipt />
   },
   {
     id: 2,
     label: 'Produtos',
-    path: 'admin/produtos',
+    path: 'produtos',
     icon: <List />
   },
   {
     id: 3,
     label: 'Adicionar Produto',
-    path: 'admin/novo-produto',
+    path: 'novo-produto',
     icon: <ListPlus />
   }
 ]

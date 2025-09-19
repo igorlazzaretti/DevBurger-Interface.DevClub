@@ -1,6 +1,6 @@
 <!-- Commit:
 :man_technologist:Interface DevBurguer
-Módulo 4 Aula 4 - Corrigindo a Tabela
+Módulo 4 Aula 5 - Criando a Tela de Adicionar Produto
 
 Figma: https://www.figma.com/design/iggbPQzl4BsDC0gKKifcwG/DevBurger?node-id=0-1&p=f&t=V6aRzXLheZhpJalg-0
 Em Desenvolvimento

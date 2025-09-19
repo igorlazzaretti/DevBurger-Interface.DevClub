@@ -8,14 +8,13 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    height: 100vh;
     width: 100%;
     background-color: ${(props) => props.theme.secondWhite};
     overflow-y: auto;
   }
   section {
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 10px 5px;
     max-width: 1200px;
     width: 100%;
   }

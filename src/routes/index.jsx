@@ -23,10 +23,10 @@ export function Router() {
       <Route path="/cadastro" element={<Register />} />
 
     <Route path="/admin" element={<AdminLayout />}>
-        <Route path="/admin/pedidos"        element={<Orders />} />
-        <Route path="/admin/novo-produto"   element={<NewProduct />} />
-        <Route path="/admin/editar-produto" element={<EditProduct />} />
-        <Route path="/admin/produtos"       element={<Products />} />
+        <Route path="pedidos"        element={<Orders />} />
+        <Route path="novo-produto"   element={<NewProduct />} />
+        <Route path="editar-produto" element={<EditProduct />} />
+        <Route path="produtos"       element={<Products />} />
     </Route>
 
       <Route path="/" element={<UserLayout />}>
