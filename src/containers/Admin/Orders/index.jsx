@@ -12,6 +12,7 @@ import { api } from '../../../services/api';
 import { formatDate } from '../../../utils/formatDate';
 import { orderStatusOptions } from './orderStatus';
 import { Filter, FilterOptions } from './styles';
+import { toast } from 'react-toastify'
 
 export function Orders() {
   // Pedidos da API
@@ -57,6 +58,20 @@ export function Orders() {
     }
     setActiveStatus(status.id)
   }
+  // useEffect para atualizar as linhas da tabela quando os pedidos filtrados mudam
+  useEffect( () => {
+    if(activeStatus === 1) {
+      setFilteredOrders(orders)
+    } else {
+      const statusIndex = orderStatusOptions.findIndex(
+        (item) => item.id === activeStatus
+      )
+      const newFilteredOrders = orders.filter(
+        order => order.status === orderStatusOptions[statusIndex].label)
+
+      setFilteredOrders(newFilteredOrders)
+    }
+  }, [orders])
 
   return (
     <>

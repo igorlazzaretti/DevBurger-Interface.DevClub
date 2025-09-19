@@ -13,7 +13,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { ProductImage, SelectStatus } from './styles';
 import { orderStatusOptions as options } from './orderStatus';
-import { api} from '../../../services/api';
+import { api } from '../../../services/api';
+import { toast } from 'react-toastify'
 
 export function Row({ row, setOrders, orders }) {
   // console.log('row',row)
@@ -28,8 +29,10 @@ export function Row({ row, setOrders, orders }) {
 
     const orderUpdate = orders.map( order => order._id === id ? {...order, status} : order)
     setOrders(orderUpdate)
+    toast.success(`Status do pedido ${id} alterado para "${status}".`)
   } catch(err) {
     console.error(err)
+    toast.error('Erro ao atualizar status do pedido. Tente novamente.')
   } finally {
     setLoading(false)
   }
