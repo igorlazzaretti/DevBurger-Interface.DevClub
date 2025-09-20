@@ -35,7 +35,7 @@ export function Header() {
                 <HeaderLink
                   to="/admin/pedidos"
                   $isActive={pathname.includes('/admin')}
-                >Pedidos</HeaderLink>
+                >Administrador</HeaderLink>
               </>
             )}
           </div>

@@ -1,6 +1,6 @@
 <!-- Commit:
 :man_technologist:Interface DevBurguer
-Módulo 4 Aula 6 - Terminando de Configurar a Tela de Produtos
+Módulo 4 Aula 7 - Terminando Validações da Tela de Add Produto
 
 Figma: https://www.figma.com/design/iggbPQzl4BsDC0gKKifcwG/DevBurger?node-id=0-1&p=f&t=V6aRzXLheZhpJalg-0
 Em Desenvolvimento
