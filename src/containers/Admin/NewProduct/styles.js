@@ -36,6 +36,9 @@ export const Input = styled.input`
   padding: 0 12px;
   border: none;
 `
+export const LabelImg = styled.label`
+  margin: 20px 0;
+`
 export const LabelUpload = styled.label`
   cursor: pointer;
   border: 1px dashed ${(props) => props.theme.white};
@@ -43,8 +46,6 @@ export const LabelUpload = styled.label`
   padding: 10px;
   color: ${(props) => props.theme.white};
   display: flex;
-  margin: 20px 0;
-
   > svg {
     width: 20px;
     height: 20px;
@@ -59,4 +60,10 @@ export const LabelUpload = styled.label`
 export const Select = styled(ReactSelect)``
 export const SubmitButton = styled(Button)`
   margin-top: 20px;
+`
+export const ErrorMessage = styled.span`
+  color: ${(props) => props.theme.darkRed};
+  font-size: 18px;
+  line-height: 80%;
+  font-weight: 600;
 `
