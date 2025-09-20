@@ -56,9 +56,7 @@ export function CategoriesCarousel() {
         {categories.map(({ id, url, name }) => (
           <ContainerItems key={id} $imageurl={url} >
             <CategoryButton
-              onClick={() => {
-                navigate(`/cardapio?categoria=${id}`);
-              }}
+              to={`/cardapio${`?categoria=${id}`}`}
               title={`Ir para o Cardápio de ${name}`}
             >{name}
             </CategoryButton>
