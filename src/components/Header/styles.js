@@ -51,10 +51,8 @@ export const HeaderLink = styled(Link)`
   transition: color 200ms;
   height: 7vh;
   align-items: center;
-
   display: flex;
   padding: 0 16px;
-
   &:hover {
     color: #9758a6;
   }
@@ -74,7 +72,7 @@ export const Profile = styled.div`
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  min-width: 13vw;
+  min-width: fit-content;
   p {
     color: #fff;
     font-weight: 300;
@@ -105,7 +103,7 @@ export const CartHeaderSection = styled.div`
   gap: 12px;
   font-size: 14px;
   text-decoration: none;
-    position: relative;      /* o círculo vai se posicionar em cima do ícone */
+  position: relative;      /* o círculo vai se posicionar em cima do ícone */
   display: inline-flex;
   align-items: center;
   justify-content: center;
