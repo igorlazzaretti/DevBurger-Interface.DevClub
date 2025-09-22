@@ -9,7 +9,6 @@ export const ProductImage = styled.img`
   padding: 12px;
   background-color: #f1f1f1;
 `
-
 export const EditButton = styled.button`
   border: none;
   background-color: ${props => props.theme.darkwhite};
@@ -33,4 +32,30 @@ export const EditButton = styled.button`
   &:active{
     transform: scale(0.9);
   }
+`
+export const DeleteButton = styled.button`
+  border: none;
+  background-color: ${props => props.theme.darkwhite};
+  height: 62px;
+  width: 62px;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+      height: 24px;
+      width: 24px;
+  }
+  &:hover{
+    background-color: ${props => props.theme.darkRed};
+    svg{
+        fill: ${props => props.theme.white};
+    }
+  }
+  &:active{
+    transform: scale(0.9);
+  }
+`
+export const AskDeleteProduct = styled.div`
 `

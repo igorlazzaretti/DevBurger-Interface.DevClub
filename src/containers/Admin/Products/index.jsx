@@ -1,16 +1,25 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../../services/api';
-import { Container, EditButton, ProductImage } from './styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { CheckCircle, Pencil, XCircle } from '@phosphor-icons/react';
+import { Container, EditButton, ProductImage, DeleteButton } from './styles';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@mui/material';
+import {
+  CheckCircle,
+  Pencil,
+  XCircle,
+  X as XIcon,
+} from '@phosphor-icons/react';
 import { formatPrice as FormatPrice } from '../../../utils/formatPrice';
 import { useNavigate } from 'react-router-dom';
+import { ModalConfirmDelete } from '../../../components';
+import { toast } from 'react-toastify';
 
 export function Products() {
   const [products, setProducts] = useState([]);
@@ -36,6 +45,27 @@ export function Products() {
     navigate('/admin/editar-produto', { state: { product } });
   }
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [productToDelete, setProductToDelete] = useState(null);
+
+  function askDeleteProduct(product) {
+    setProductToDelete(product);
+    setIsModalOpen(true);
+  }
+
+  async function handleConfirmDelete() {
+    try {
+      await api.delete(`/products/${productToDelete.id}`);
+      setProducts(products.filter((p) => p.id !== productToDelete.id));
+      toast.success('Produto deletado com sucesso!');
+    } catch (error) {
+      toast.error('Ocorreu um erro ao deletar o produto.');
+    } finally {
+      setIsModalOpen(false);
+      setProductToDelete(null);
+    }
+  }
+
   return (
     <Container>
       <TableContainer component={Paper}>
@@ -47,6 +77,7 @@ export function Products() {
               <TableCell align="center">Produto em Oferta</TableCell>
               <TableCell align="center">Image do Produto</TableCell>
               <TableCell align="center">Editar Produto</TableCell>
+              <TableCell align="center">Excluir Produto</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -70,11 +101,22 @@ export function Products() {
                     <Pencil />
                   </EditButton>
                 </TableCell>
+                <TableCell align="center">
+                  <DeleteButton onClick={() => askDeleteProduct(product)}>
+                    <XIcon />
+                  </DeleteButton>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+      <ModalConfirmDelete
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleConfirmDelete}
+        productName={productToDelete?.name}
+      />
     </Container>
   );
 }
